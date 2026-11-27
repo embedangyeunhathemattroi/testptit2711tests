@@ -1,25 +1,10 @@
+
 import { Routes, Route, Navigate } from 'react-router-dom';
-import ProductTable from './components/ProductTable.jsx';
-import sampleProducts from './data/sample.js';
 
-function ProductList() {
-  return (
-    <main className="container">
-      <div className="page-heading">
-        <h1>Sản phẩm</h1>
+import ProductList from './pages/ProductList.jsx';
+import ProductFormPage from './pages/ProductFormPage.jsx';
 
-        <button
-          className="add-btn"
-          data-testid="add-button"
-        >
-          Thêm sản phẩm
-        </button>
-      </div>
-
-      <ProductTable products={sampleProducts} />
-    </main>
-  );
-}
+import './App.css';
 
 export default function App() {
   return (
@@ -37,6 +22,16 @@ export default function App() {
         <Route
           path="/products"
           element={<ProductList />}
+        />
+
+        <Route
+          path="/products/new"
+          element={<ProductFormPage />}
+        />
+
+        <Route
+          path="/products/:id/edit"
+          element={<ProductFormPage />}
         />
       </Routes>
     </>
